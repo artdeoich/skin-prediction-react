@@ -8,6 +8,8 @@ WORKDIR /app
 COPY backend/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/ ./backend/
-COPY --from=frontend /app/frontend/dist/ ./backend/static/
+COPY --from=frontend /app/backend/static/ ./backend/static/
+
 EXPOSE 8080
 CMD ["gunicorn", "-b", ":8080", "backend.app:app"]
+
