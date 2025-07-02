@@ -12,9 +12,9 @@ app = Flask(__name__, static_folder=frontend_path', static_url_path='')
 model = load_model("/app/backend/model.keras")
 CLASS_NAMES = ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"]
 
-@app.route("/")
-def index():
-    return app.send_static_file("index.html")
+@app.route('/')
+def serve_index():
+    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route("/predict", methods=["POST"])
 def predict():
