@@ -5,7 +5,9 @@ from PIL import Image
 import numpy as np
 import os, io
 
-app = Flask(__name__, static_folder='static', static_url_path='')
+frontend_path = os.path.join(os.path.dirname(__file__), '../frontend/dist')
+
+app = Flask(__name__, static_folder=frontend_path', static_url_path='')
 
 model = load_model("/app/backend/model.keras")
 CLASS_NAMES = ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"]
