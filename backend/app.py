@@ -38,3 +38,7 @@ def predict():
         "confidence": confidence,
         "predictions_by_class": predictions_by_class
     })
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 8080)) 
+    app.run(host='0.0.0.0', port=port)
