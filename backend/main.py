@@ -7,7 +7,7 @@ import os, io
 
 app = Flask(__name__, static_folder='static', static_url_path='')
 
-model = load_model("./model.keras")
+model = load_model("/app/backend/model.keras")
 CLASS_NAMES = ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"]
 
 @app.route("/")
