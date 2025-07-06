@@ -5,7 +5,6 @@ from PIL import Image
 import numpy as np
 import io
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 frontend_path = os.path.join(os.path.dirname(__file__), '../frontend/dist')
 
