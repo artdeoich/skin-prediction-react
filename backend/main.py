@@ -6,16 +6,23 @@ import numpy as np
 import io
 import os
 
-frontend_path = os.path.join(os.path.dirname(__file__), '../frontend/dist')
+frontend_path = os.path.join(os.path.dirname(__file__), 'static')
 
+app = Flask(__name__, static_folder=frontend_path, static_url_path='')
+
+@app.route('/')
+def serve_index():
+    return send_from_directory(app.static_folder, 'index.html')
+
+@app.route('/<path:path>')
+def serve_static_files(path):
+    return send_from_directory(app.static_folder, path)
+    
 app = Flask(__name__, static_folder=frontend_path, static_url_path='')
 
 model = load_model("/app/backend/model.keras")
 CLASS_NAMES = ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"]
 
-@app.route('/')
-def serve_index():
-    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route("/predict", methods=["POST"])
 def predict():
