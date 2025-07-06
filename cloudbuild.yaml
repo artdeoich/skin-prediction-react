@@ -20,7 +20,7 @@ steps:
         'us-central1',
         '--allow-unauthenticated',
         '--port',
-        '5000'
+        '8080'
       ]
 
 options:
