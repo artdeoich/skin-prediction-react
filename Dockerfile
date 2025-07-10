@@ -13,4 +13,4 @@ COPY backend/ ./backend/
 COPY --from=frontend /app/frontend/dist/ ./backend/static/
 
 EXPOSE 8080
-CMD ["gunicorn", "-w", "1", "-b", ":8080", "backend.main:app"]
+CMD ["python", "backend/main.py"]
