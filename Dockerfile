@@ -13,4 +13,4 @@ COPY backend/ ./backend/
 COPY --from=frontend /app/frontend/dist/ ./backend/static/
 
 EXPOSE 8080
-CMD ["python", "backend/main.py"]
+CMD ["python", "./backend/main.py"]
